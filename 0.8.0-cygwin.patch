@@ -1,0 +1,47 @@
+--- origsrc/Q7Z/Source/Settings.py	2009-04-22 17:38:10.000000000 -0500
++++ src/Q7Z/Source/Settings.py	2010-06-02 23:12:45.988076300 -0500
+@@ -76,7 +76,7 @@ QtCore.QCoreApplication.setOrganizationN
+ QtCore.QCoreApplication.setOrganizationDomain( Application.sDomain )
+ 
+ # Operating system
+-sOS					= platform.system()
++sOS					= os.name
+ 
+ # Environment
+ Env = QtCore.QObject()
+@@ -233,7 +233,7 @@ def slInits() :
+ def slVariables() :
+ 
+ 	# Linux
+-	if sOS == "Linux" :
++	if sOS == "posix" :
+ 
+ 		# KDE Configs
+ 		pShell = Popen( ["which", "kde-config"], stdout=PIPE, stderr=PIPE )
+@@ -331,7 +331,7 @@ def slVariables() :
+ 
+ 	"""
+ 	# Windows
+-	elif sOS == "Windows" :
++	elif sOS == "nt" :
+ 
+ 		if not Path.Sys.sPrefix :
+ 			Path.Sys.sPrefix	= ''
+@@ -411,7 +411,7 @@ def slLoad() :
+ 		Main.uiSettings.leExclExt.setText( User.Syntax.sExclusions )
+ 
+ 	# Linux
+-	if sOS == "Linux" :
++	if sOS == "posix" :
+ 
+ 		# Visible?
+ 		if not Import.Init.bInvisible :
+@@ -457,7 +457,7 @@ def slAccept() :
+ 	File.slMessage( Message.iInformation, "The user settings were saved to the config file." )
+ 
+ 	# Linux
+-	if sOS == "Linux" :
++	if sOS == "posix" :
+ 
+ 		# User service menus
+ 		slServiceMenus( True )

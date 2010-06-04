@@ -1,0 +1,6 @@
+category: Archive KDE
+requires: p7zip python python-pyqt4 tar
+sdesc: "Qt4/KDE P7Zip GUI"
+ldesc: "Q7Z is a P7Zip GUI for Linux. Q7Z attempts to simplify data 
+compression and backup.  7-Zip is a file archiver for Windows with a high 
+compression ratio; P7Zip is a port of 7-Zip from Windows to Linux."
