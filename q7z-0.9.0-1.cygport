@@ -1,16 +1,16 @@
-inherit python
+inherit python3
 
 DESCRIPTION="Qt4/KDE P7Zip GUI"
 HOMEPAGE="http://code.google.com/p/k7z/"
 SRC_URI="http://k7z.googlecode.com/files/Q7Z-${PV}.tar.bz2"
 SRC_DIR="Q7Z"
 
-PATCH_URI="0.8.0-cygwin.patch"
+PATCH_URI="0.9.0-cygwin.patch"
 
 src_compile() {
 	lndirs
 	cd ${B}/Build
-	cygmake
+	cygmake PyQt4-UIC="${PYTHON3} ${PYTHON3_SITELIB}/PyQt4/uic/pyuic.py"
 }
 
 src_install() {
@@ -21,5 +21,5 @@ src_install() {
 	rm -fr ${D}/usr/share/Q7Z/Desktop/{Gnome,KDE,Menu,Xfce}
 	rm -f ${D}/usr/share/icons/hicolor/*/*/*.ico
 
-	python_optimize /usr/share/Q7Z/Source
+	python3_optimize /usr/share/Q7Z/Source
 }

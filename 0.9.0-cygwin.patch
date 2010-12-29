@@ -1,0 +1,20 @@
+--- origsrc/Q7Z/Source/Settings.py	2010-12-15 22:42:36.000000000 -0600
++++ src/Q7Z/Source/Settings.py	2010-12-28 22:52:33.028771200 -0600
+@@ -89,7 +89,7 @@ QtCore.QCoreApplication.setOrganizationN
+ QtCore.QCoreApplication.setOrganizationDomain( Application.sDomain )
+ 
+ # Operating system
+-sOS					= platform.system()
++sOS					= os.name
+ 
+ # Environment
+ Env				= QtCore.QObject()
+@@ -226,7 +226,7 @@ def slInits() :
+ def slVariables() :
+ 
+ 	# Linux
+-	if sOS == "Linux" :
++	if sOS == "posix" :
+ 
+ 		slPaths()
+ 		slProxy()
